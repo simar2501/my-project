@@ -1,0 +1,37 @@
+Experiment 3 – Building an Admin Dashboard with Light/Dark Mode Switch
+I created a minimal and organized Admin Dashboard using HTML and CSS, including a working toggle to switch between light and dark themes. 
+1. HTML Structure:
+Header: Displays the title "Admin Dashboard" and a clickable "Dark Mode" label for switching between light and dark themes.
+Sidebar (nav): Vertical navigation menu with links to Home, Users, and Settings.
+Main Content: Contains a welcome message and a placeholder area for charts, tables, or reports.
+Footer: Simple copyright notice.
+Tags Used: Semantic HTML elements (<header>, <nav>, <main>, <footer>) for better structure and accessibility.
+2. CSS Layout & Styling:
+Layout: Built using CSS Grid to organize header, sidebar, main content, and footer.
+Styling: Added background colors, padding, borders, font sizes, and text colors for clarity and design.
+Themes: Created CSS variables for light mode and dark mode color schemes.
+Theme Switching: Clicking the "Dark Mode" label toggles between light and dark themes without reloading the page.
+3. Procedure (What Was Done):
+Created the HTML structure using semantic tags for better readability and SEO.
+Designed the layout using CSS Grid to clearly define the header, sidebar, main, and footer areas.
+Applied CSS styling with variables for easy theme management.
+Defined two sets of CSS variables — one for light mode (default) and one for dark mode.
+Added a clickable "Dark Mode" label in the header to toggle between themes using CSS selectors.
+Tested the layout and theme switching on different screen sizes to ensure responsiveness and readability.
+4. Test Cases:
+On load, light mode appears with correct layout.
+Clicking "Dark Mode" switches instantly to dark mode.
+Clicking again reverts to light mode.
+Links remain visible in both themes.
+Keyboard navigation works for the toggle and links.
+CSS variables update dynamically on theme change.
+5. Key Learning Points:
+Importance of semantic HTML for structure.
+CSS Grid for easy and clean layout creation.
+CSS variables for flexible theming.
+Implementing theme switching without JavaScript.
+6. Learning Outcomes:
+Create semantic, accessible web page structures.
+Organize layouts using CSS Grid effectively.
+Manage multiple themes with CSS variables.
+Implement instant theme switching via CSS.
