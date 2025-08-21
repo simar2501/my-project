@@ -1,0 +1,87 @@
+Experiment 4 – Live Character Counter
+
+I created a Live Character Counter using HTML, CSS, and JavaScript. It updates the number of characters entered in a textarea in real-time.
+
+1. HTML Structure:
+
+Container (<div class="container">) wraps all elements neatly.
+
+Heading (<h1>) displays the title “Live Character Counter”.
+
+Textarea (<textarea id="textInput">) is the input field for typing text.
+
+Paragraph (<p id="charCount">) displays the live character count, starting with Characters: 0.
+
+Script Reference (<script src="script.js">) links the JavaScript file for functionality.
+
+Tags Used: <div>, <h1>, <textarea>, <p>, <script>.
+
+2. CSS Layout & Styling:
+
+Body: Light gray background with padding.
+
+Container: White box with rounded corners, padding, shadow, and centered alignment.
+
+Textarea: Full width, resizable vertically, with padding, border, and rounded edges.
+
+Counter text (#charCount): Margin on top, medium font size, and dark gray color.
+
+3. JavaScript Functionality:
+
+Element Selection: Used getElementById to select textarea and counter.
+
+Event Listener: Added an input event to detect typing, deleting, or pasting text.
+
+Logic: Counts characters using textarea.value.length and updates the counter dynamically with template literals.
+
+4. Procedure :
+
+Created the HTML structure with a heading, textarea, and counter.
+
+Designed the layout using CSS (container, background, padding, shadow).
+
+Wrote JavaScript to detect input and update the count dynamically.
+
+Linked all files together in a single project.
+
+Deployed the project to create a demo URL so it can be tested online.
+
+Verified the functionality both locally and through the deployed demo URL.
+
+5. Test Cases:
+
+On load → Shows Characters: 0.
+
+Typing → Count increases instantly.
+
+Deleting → Count decreases.
+
+Copy-paste → Updates correctly.
+
+Clearing textarea → Resets to Characters: 0.
+
+Deployed demo URL works correctly across devices.
+
+6. Key Learning Points:
+
+Using semantic and accessible HTML.
+
+Styling layouts cleanly with CSS.
+
+DOM manipulation with getElementById.
+
+Handling real-time events with addEventListener.
+
+Template literals for dynamic string updates.
+
+7. Learning Outcomes:
+
+Build an interactive feature using HTML, CSS, and JS.
+
+Implement real-time updates without reloading the page.
+
+Apply event-driven programming concepts.
+
+Improve user experience with responsive feedback.
+
+Deploy small projects online for demonstration and testing.
