@@ -1,37 +1,39 @@
-Dynamic Product Filter with Dropdown using JavaScript DOM Manipulation
+Experiment - 5
+Title: Dynamic Product Filter using HTML, CSS, and JavaScript
 
-Objective:
-- To build a web-based product list that can dynamically filter and display items based on the user's selection from a dropdown menu.
-- To practice using JavaScript for DOM manipulation, handling user events, and updating visible elements in real time.
+Description:
 
-Task Description:
-- Create a web page that displays a list of products (e.g., T-shirts, jeans, headphones, smartphones, novels, cookbooks).
-- Provide a dropdown menu above the product list with filtering options such as "All", "Clothing", "Electronics", and "Books".
-- When a user selects a category from the dropdown, only products matching that category should be displayed.
-- If "All" is selected, the entire product list should be visible.
-- Filtering should happen dynamically using JavaScript without reloading the page.
+In this experiment, a simple web page is created that allows the user to filter products dynamically based on categories such as Clothing, Electronics, and Books. The implementation makes use of HTML for structure, CSS for styling, and JavaScript for interactivity.
 
-Implementation Details:
-1. HTML Structure
-   - A container is created to hold the product list and dropdown menu.
-   - Each product is represented by a `div` element with a `data-category` attribute for filtering.
+1. HTML Structure:
+   - The web page starts with a container <div> that holds all the content.
+   - A heading ("Product List") is displayed at the top.
+   - A dropdown menu (<select>) is provided for the user to choose a category. The options available are:
+        - All
+        - Clothing
+        - Electronics
+        - Books
+   - Below the dropdown, there is a product list where each product is represented as a <div> with a class "product".
+   - Each product also has a "data-category" attribute that defines its category. For example:
+        - T-Shirt → Clothing
+        - Smartphone → Electronics
+        - Novel → Books
 
-2. CSS Styling
-   - Styled the container with borders, padding, and spacing.
-   - Each product is displayed with a light background, border, and rounded corners for better readability.
-   - Dropdown menu styled for usability.
+2. CSS Styling:
+   - The overall body uses the Arial font and has some padding for spacing.
+   - The container has a border, padding, rounded corners, and a fixed width for a neat look.
+   - The dropdown (<select>) has padding and width set to 100% for better usability.
+   - Each product item has a light gray border, some margin, padding, and slightly rounded corners to make them look like cards.
 
-3. JavaScript Functionality
-   - Captured the dropdown selection event using `addEventListener`.
-   - Loop through all products and check their `data-category` attribute.
-   - Show or hide each product depending on whether it matches the selected category.
-   - Ensures real-time filtering without reloading the page.
-
-Learning Outcomes:
-- Understanding of DOM manipulation using JavaScript.
-- Handling user input events such as dropdown selection.
-- Practical knowledge of dynamically updating webpage content.
-- Improved ability to structure projects by separating HTML, CSS, and JavaScript files.
+3. JavaScript Functionality:
+   - JavaScript is used to make the product filtering work dynamically.
+   - First, the dropdown element is selected using document.getElementById("category").
+   - All products are selected using document.querySelectorAll(".product").
+   - An event listener is added to the dropdown for the "change" event.
+   - When the user selects a category:
+        * If "All" is selected, all products are displayed.
+        * Otherwise, only the products whose data-category matches the selected category remain visible.
+        * Other products are hidden by changing their CSS display property to "none".
 
 Conclusion:
-This experiment demonstrates how JavaScript can be used to create dynamic and interactive web pages by filtering and updating product lists in real time based on user input.
+This experiment demonstrates how HTML, CSS, and JavaScript can be combined to build a simple but interactive web page. It helps in understanding how to manipulate the DOM using JavaScript, apply styling with CSS, and organize content with HTML. The real-time filtering feature improves user experience and shows the practical use of event handling in JavaScript.
