@@ -1,0 +1,37 @@
+Dynamic Product Filter with Dropdown using JavaScript DOM Manipulation
+
+Objective:
+- To build a web-based product list that can dynamically filter and display items based on the user's selection from a dropdown menu.
+- To practice using JavaScript for DOM manipulation, handling user events, and updating visible elements in real time.
+
+Task Description:
+- Create a web page that displays a list of products (e.g., T-shirts, jeans, headphones, smartphones, novels, cookbooks).
+- Provide a dropdown menu above the product list with filtering options such as "All", "Clothing", "Electronics", and "Books".
+- When a user selects a category from the dropdown, only products matching that category should be displayed.
+- If "All" is selected, the entire product list should be visible.
+- Filtering should happen dynamically using JavaScript without reloading the page.
+
+Implementation Details:
+1. HTML Structure
+   - A container is created to hold the product list and dropdown menu.
+   - Each product is represented by a `div` element with a `data-category` attribute for filtering.
+
+2. CSS Styling
+   - Styled the container with borders, padding, and spacing.
+   - Each product is displayed with a light background, border, and rounded corners for better readability.
+   - Dropdown menu styled for usability.
+
+3. JavaScript Functionality
+   - Captured the dropdown selection event using `addEventListener`.
+   - Loop through all products and check their `data-category` attribute.
+   - Show or hide each product depending on whether it matches the selected category.
+   - Ensures real-time filtering without reloading the page.
+
+Learning Outcomes:
+- Understanding of DOM manipulation using JavaScript.
+- Handling user input events such as dropdown selection.
+- Practical knowledge of dynamically updating webpage content.
+- Improved ability to structure projects by separating HTML, CSS, and JavaScript files.
+
+Conclusion:
+This experiment demonstrates how JavaScript can be used to create dynamic and interactive web pages by filtering and updating product lists in real time based on user input.
