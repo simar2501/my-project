@@ -4,12 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Product Filter</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    select {
+      padding: 5px;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    .product {
+      border: 1px solid #ccc;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
+
   <div class="container">
     <h2>Product List</h2>
-    <label for="category">Filter by Category: </label>
+    <label for="category">Filter by Category:</label>
     <select id="category">
       <option value="All">All</option>
       <option value="Clothing">Clothing</option>
@@ -17,7 +43,7 @@
       <option value="Books">Books</option>
     </select>
 
-    <div id="productList">
+    <div id="product-list">
       <div class="product" data-category="Clothing">T-Shirt</div>
       <div class="product" data-category="Clothing">Jeans</div>
       <div class="product" data-category="Electronics">Headphones</div>
@@ -27,6 +53,22 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const dropdown = document.getElementById("category");
+    const products = document.querySelectorAll(".product");
+
+    dropdown.addEventListener("change", function() {
+      const selected = this.value;
+
+      products.forEach(product => {
+        if (selected === "All" || product.dataset.category === selected) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
