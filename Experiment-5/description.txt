@@ -107,3 +107,5 @@ Write JavaScript logic to dynamically change the UI without reloading the page.
 Strengthen understanding of DOM manipulation and event handling.
 
 Apply combined HTML, CSS, and JavaScript for an interactive mini-project.
+
+
