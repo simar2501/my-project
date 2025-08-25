@@ -1,0 +1,19 @@
+Experiment: Interactive SVG Drawing Tool with Mouse Event Handlers
+
+Objective:
+- To design and build a web-based drawing tool using SVG where users can draw shapes interactively with their mouse.
+- To understand JavaScript DOM manipulation, SVG element creation, and event handling.
+
+Steps:
+1. Create an HTML file with an SVG area that acts as the drawing canvas.
+2. Style the SVG canvas using CSS (border, background color, and cursor style).
+3. Write JavaScript to handle mouse events:
+   - mousedown: start drawing and create a new SVG <path> element.
+   - mousemove: update the path dynamically as the mouse moves.
+   - mouseup: finish drawing the shape.
+4. Append each drawn path to the SVG so that multiple shapes can be drawn without losing previous ones.
+5. Test the drawing tool by writing text or shapes inside the canvas.
+
+Expected Output:
+- A web page with a rectangular SVG drawing area.
+- Users can click and drag the mouse to draw freehand shapes and letters (similar to the example: drawing "ByteXL").
