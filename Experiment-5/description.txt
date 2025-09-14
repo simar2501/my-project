@@ -1,0 +1,111 @@
+Experiment – Dynamic Product Filter
+
+I created a Dynamic Product Filter using HTML, CSS, and JavaScript. It allows users to filter products by category from a dropdown menu.
+
+1) HTML Structure
+
+Container (<div class="container">): Holds the entire product filter interface.
+
+Heading (<h2>): Displays the title “Product List”.
+
+Label & Dropdown (<label> + <select id="category">):
+
+Dropdown menu provides filter options: All, Clothing, Electronics, Books.
+
+Product List (<div id="product-list">): Contains all product items.
+
+Each product (<div class="product">) has a data-category attribute (e.g., Clothing, Electronics, Books).
+
+Tags Used: <!DOCTYPE html>, <html>, <head>, <meta>, <title>, <style>, <body>, <div>, <h2>, <label>, <select>, <option>, <script>.
+
+2) CSS Layout & Styling
+
+Body: Uses Arial font with padding around the page.
+
+Container:
+
+Bordered box with padding, rounded corners, and fixed max width (400px).
+
+Heading (h2): Small margin for spacing.
+
+Dropdown (select): Full-width, padded, with margin below for spacing.
+
+Product Boxes (.product):
+
+Light gray border, padding, margin between items, and rounded edges for neat look.
+
+3) JavaScript Functionality
+
+Element Selection:
+
+dropdown → selects the <select> element.
+
+products → selects all product <div>s with the class .product.
+
+Event Listener:
+
+Listens for the "change" event on the dropdown menu.
+
+Logic:
+
+Gets the selected category (this.value).
+
+Loops through all products using forEach.
+
+If “All” is selected → every product is shown.
+
+Otherwise → only products with matching data-category remain visible; others are hidden using style.display = "none".
+
+4) Procedure
+
+Created the HTML layout with a container, heading, dropdown filter, and product list.
+
+Styled the layout with CSS (borders, padding, rounded corners, and spacing).
+
+Wrote JavaScript to:
+
+Detect dropdown selection.
+
+Show or hide products dynamically based on category.
+
+Tested the project locally to verify filtering works correctly.
+
+5) Test Cases
+
+Initial Load → All products are visible.
+
+Select Clothing → Only “T-Shirt” and “Jeans” remain.
+
+Select Electronics → Only “Headphones” and “Smartphone” remain.
+
+Select Books → Only “Novel” and “Cookbook” remain.
+
+Select All → All six products become visible again.
+
+Switch rapidly between categories → Filtering updates instantly.
+
+6) Key Learning Points
+
+HTML data- attributes to categorize elements for filtering.
+
+CSS basics for creating clean, structured layouts.
+
+JavaScript DOM selection with getElementById and querySelectorAll.
+
+Event-driven programming using addEventListener("change").
+
+Dynamic element styling with style.display to show/hide items.
+
+7) Learning Outcomes
+
+Build a functional product filter with dropdown selection.
+
+Use HTML attributes (data-category) to classify and manage items.
+
+Write JavaScript logic to dynamically change the UI without reloading the page.
+
+Strengthen understanding of DOM manipulation and event handling.
+
+Apply combined HTML, CSS, and JavaScript for an interactive mini-project.
+
+

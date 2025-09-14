@@ -1,0 +1,13 @@
+1. This is a basic Bank UI built using HTML and CSS.
+
+2. It shows the current balance at the top (default: $0).
+
+3. There are two buttons – "Deposit" (green) and "Withdraw" (red).
+
+4. The layout is centered on the screen using Flexbox.
+
+5. The design has a clean white card with rounded corners and shadow.
+
+6. The background is light blue (#e3f2fd) for a soft look.
+
+7. Buttons are styled for a modern and clickable appearance.

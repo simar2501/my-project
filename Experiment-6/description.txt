@@ -1,0 +1,157 @@
+Experiment –6 : SVG Drawing Tool
+
+I created an interactive SVG Drawing Tool using HTML, CSS, and JavaScript. It lets users draw freehand strokes by clicking/touching and dragging on an SVG canvas, and clear everything with a button.
+
+1) HTML Structure
+
+Container (<main class="wrap">) holds the whole interface.
+
+Heading (<h2>) shows the title “SVG Drawing Tool”.
+
+Toolbar (<div class="toolbar">) contains:
+
+Draw Mode button (<button id="drawModeBtn">) – visual state only (active highlight).
+
+Clear button (<button id="clearBtn">) – clears the canvas.
+
+Canvas Frame (<div class="canvas-frame">) wraps the drawing area.
+
+SVG Canvas (<svg id="drawingArea">) is where paths are drawn dynamically.
+
+Hint (<p class="hint">) shows usage instructions.
+
+Script Reference (<script src="script.js">) links the JavaScript logic.
+
+Stylesheet Link (<link rel="stylesheet" href="style.css">) applies styles.
+
+Tags Used: <!DOCTYPE html>, <html>, <head>, <meta>, <title>, <link>, <body>, <main>, <h2>, <div>, <button>, <svg>, <p>, <script>.
+
+2) CSS Layout & Styling
+
+CSS Variables (:root) centralize colors (background, ink, frame, canvas, stroke).
+
+Body: clean system font, light background, zero margin.
+
+.wrap: centered white card with padding, rounded corners, border, and soft shadow.
+
+Toolbar: horizontal button layout with spacing and an .active state (blue fill, white text).
+
+Canvas Frame: subtle border, padding, and rounded corners around the SVG.
+
+svg#drawingArea: full-width responsive canvas (fixed height 520px), light background, border, rounded edges, crosshair cursor.
+
+Hint: small, muted helper text.
+
+3) JavaScript Functionality
+
+Element Selection
+
+const svg = document.getElementById("drawingArea");
+
+Tracks drawing state with isDrawing and the currently drawn currentPath.
+
+Coordinate Handling
+
+getSvgPoint(evt) converts mouse/touch client coordinates into SVG coordinate space using:
+
+svg.createSVGPoint() and
+
+pt.matrixTransform(svg.getScreenCTM().inverse())
+
+Ensures drawing works correctly regardless of scroll/position/zoom.
+
+Start Drawing (startDraw)
+
+Prevents default (important for touch).
+
+Creates a new <path> in the SVG namespace.
+
+Sets stroke attributes (blue color, 2.5 width, rounded joins/caps).
+
+Initializes d with a Move-to command: M x y.
+
+Drawing (draw)
+
+While isDrawing is true, appends Line-to segments to the current path’s d attribute: L x y, forming a continuous freehand polyline.
+
+End Drawing (endDraw)
+
+Resets flags and releases currentPath.
+
+Clear Canvas
+
+#clearBtn empties all children of the SVG via svg.innerHTML = "".
+
+Event Listeners
+
+Mouse: mousedown, mousemove, mouseup (on window), and mouseleave to end drawing cleanly.
+
+Touch: touchstart, touchmove, touchend with { passive: false } so we can preventDefault() and avoid page scroll while drawing.
+
+4) Procedure
+
+Built the HTML layout: title, toolbar (Draw/Clear), framed SVG canvas, and hint.
+
+Styled the interface with a clean card layout, toolbar buttons, and a bordered canvas.
+
+Implemented JS:
+
+Selected elements and state variables.
+
+Wrote getSvgPoint to translate client coords to SVG coords.
+
+Created path on pointer down, extended on move, finalized on release.
+
+Added clear button logic to reset the canvas.
+
+Added both mouse and touch support for cross-device interaction.
+
+Linked style.css and script.js in index.html.
+
+Tested locally in a browser across mouse and touch inputs.
+
+5) Test Cases
+
+Initial Load → Empty canvas, buttons visible, hint shown.
+
+Single Stroke → Press, drag, release → a smooth blue line appears.
+
+Multiple Strokes → Repeat drawing; each press creates a new path.
+
+Clear All → Click Clear All → all paths removed from SVG.
+
+Mouse Leave → Start drawing, move cursor out of SVG → drawing ends safely.
+
+Mouse Up Outside → Press in SVG, release outside window → window.mouseup ends drawing (no stuck state).
+
+Touch Draw → Touch and drag on mobile → line draws smoothly; page does not scroll while drawing.
+
+Rapid Clicks/Drags → No errors; each stroke is independent.
+
+Resize/Scroll Page → Coordinates remain correct due to CTM transform.
+
+6) Key Learning Points
+
+SVG Basics: Using <svg> and <path> with d commands (M, L) for drawing.
+
+Coordinate Systems: Converting client coordinates to SVG space with getScreenCTM().inverse().
+
+Event Handling: Managing mouse and touch events, and using { passive: false } for touch drawing.
+
+State Management: Tracking drawing state (isDrawing, currentPath) to control interactions.
+
+DOM & Namespaces: Creating SVG elements with createElementNS.
+
+UX Details: Crosshair cursor, rounded strokes, safe handling on mouseleave/mouseup.
+
+7) Learning Outcomes
+
+Build an interactive drawing feature using HTML + CSS + JavaScript + SVG.
+
+Implement real-time, frame-by-frame drawing without reloading the page.
+
+Handle both mouse and touch inputs robustly.
+
+Apply transformations to work accurately within SVG coordinate space.
+
+Organize code cleanly across separate files (index.html, style.css, script.js) for maintainability.
