@@ -1,0 +1,27 @@
+Experiment 9: Implementation of Class Hierarchy and Inheritance in JavaScript (JSX)
+1. Objective
+The primary objective of this experiment is to demonstrate a practical implementation of class hierarchy and inheritance using JavaScript within a React application environment. This involves creating a base class and extending it with specialized subclasses to illustrate the principles of code reusability and polymorphism.
+
+2. Theory
+The core concept of this experiment revolves around Object-Oriented Programming (OOP). In OOP, inheritance is a mechanism where a new class inherits properties and methods from an existing class. This establishes an "is-a" relationship, where a subclass is a more specific version of its parent class.
+
+Base Class (Person): The Person class serves as the parent or base class. It defines common attributes and behaviors shared by all people, such as name and age, along with a generic getInfo() method.
+
+Subclasses (Student and Teacher): The Student and Teacher classes extend the Person class. They inherit the name and age properties and the getInfo() method. Additionally, each subclass introduces its own specific attributes (grade for Student and subject for Teacher) and overrides the getInfo() method to provide a more specialized, detailed output.
+
+Polymorphism: This experiment showcases polymorphism, a key OOP principle where a single method name (getInfo()) can perform different actions depending on the object it is called on. This allows for a flexible and maintainable code structure.
+
+The experiment's user interface, built with React, provides a clear visual representation of these concepts, displaying the unique information for both a Student and a Teacher instance, thus validating the successful implementation of the class hierarchy.
+
+3. Learning Outcomes
+Upon successful completion of this experiment, the student will be able to:
+
+Understand and Apply Inheritance: Comprehend the fundamental concepts of inheritance in OOP and implement a class hierarchy in JavaScript.
+
+Utilize the super keyword: Effectively use the super() method to call the parent class's constructor and access its methods to extend functionality.
+
+Demonstrate Polymorphism: Differentiate and apply the concept of method overriding to achieve polymorphic behavior.
+
+Structure Code Professionally: Organize code into a logical, object-oriented structure that promotes reusability, modularity, and maintainability.
+
+Integrate OOP with Modern Frameworks: Integrate traditional OOP principles with modern web development frameworks like React to create a clean and scalable application.
