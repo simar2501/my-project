@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bank UI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #e3f2fd;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header {
+      font-size: 28px;
+      color: #00796b;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:nth-child(1) {
+      background: #388e3c;
+    }
+
+    button:nth-child(2) {
+      background: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>$0</header>
+    <nav>
+      <button type="button">Deposit</button>
+      <button type="button">Withdraw</button>
+    </nav>
+  </main>
+</body>
+</html>
