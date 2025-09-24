@@ -1,0 +1,69 @@
+Library Management React App
+Description
+
+This is a simple React-based Library Management application that allows users to maintain a list of books. Users can search for books by title or author, add new books, and remove existing ones from the list.
+
+Features
+
+View Books: Displays a list of books with title and author information.
+
+Search Books: Real-time search functionality that filters books based on title or author.
+
+Add Books: Users can add new books by entering the title and author.
+
+Remove Books: Easily remove books from the library list.
+
+Technologies Used
+
+React (Functional Components and Hooks)
+
+CSS for styling
+
+Components
+
+LibraryManagement.jsx
+The main component managing the state and UI for the library list, including search, add, and remove functionalities.
+
+App.jsx
+Renders the LibraryManagement component.
+
+App.css
+Styles the UI elements, ensuring a clean and user-friendly interface.
+
+Usage
+
+Search for Books: Use the search input to filter books by title or author dynamically.
+
+Add a Book: Fill in the "New book title" and "New book author" inputs, then click the "Add Book" button to add a new book.
+
+Remove a Book: Click the "Remove" button next to a book to delete it from the list.
+
+Code Overview
+
+State Management:
+Uses React's useState hook to manage:
+
+books: the current list of books
+
+searchTerm: the current search input value
+
+newTitle and newAuthor: inputs for adding new books
+
+Filtering:
+Filters the list of books based on the search term matching either the title or author (case-insensitive).
+
+Adding a Book:
+Creates a new book object with a unique id (timestamp), title, and author, and appends it to the existing list.
+
+Removing a Book:
+Removes a book by filtering it out using its id.
+
+How to Run
+
+Clone the repository.
+
+Run npm install to install dependencies.
+
+Run npm start to start the development server.
+
+Open your browser at http://localhost:3000 to use the app.
