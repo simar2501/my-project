@@ -1,0 +1,155 @@
+Description (Detailed & in Points):
+
+Purpose of the Program:
+
+This Node.js application simulates a basic online banking system using Express.js and MongoDB.
+
+It demonstrates user authentication, JWT-based authorization, and secure financial operations (deposit, withdraw, check balance).
+
+Technologies Used:
+
+Node.js – Server-side JavaScript runtime.
+
+Express.js – Framework to handle API routes and requests.
+
+MongoDB (with Mongoose) – Database to store user information.
+
+JWT (JSON Web Token) – Used for secure user authentication.
+
+body-parser – Parses incoming JSON requests.
+
+CORS – Enables cross-origin resource sharing for API access.
+
+Server Configuration:
+
+Express app initialized using const app = express();.
+
+Runs on port 3000 with app.listen(3000).
+
+JSON parsing (bodyParser.json()) and CORS (app.use(cors())) enabled for API communication.
+
+Database Connection (MongoDB):
+
+Connects to local MongoDB using Mongoose with the URI:
+
+mongodb://127.0.0.1:27017/bankDB
+
+
+Logs success or error messages depending on connection status.
+
+User Schema and Model:
+
+Schema fields:
+
+username: String, required, unique.
+
+password: String, required.
+
+balance: Number, defaults to 1000.
+
+Model created using mongoose.model("User", userSchema) to interact with MongoDB.
+
+Default User Creation:
+
+Automatically creates a default user (username: user1, password: password123) if not already present in the database.
+
+Helps in initial testing and demonstration.
+
+JWT Authentication System:
+
+Secret Key: "mysecretkey" (used to sign and verify tokens).
+
+Login Route (POST /login):
+
+Takes username and password as input.
+
+Validates credentials from MongoDB.
+
+On success, generates a JWT token valid for 1 hour.
+
+Returns token to client for further requests.
+
+JWT Middleware (verifyToken):
+
+Verifies the token from Authorization header.
+
+Decodes token and attaches user data (req.user) to the request.
+
+Denies access if token is missing, invalid, or expired.
+
+Protected Banking Routes:
+
+All these routes require a valid JWT token.
+
+a. Check Balance (POST /balance)
+
+Fetches user details from MongoDB using token data.
+
+Returns the current account balance.
+
+b. Deposit (POST /deposit)
+
+Takes amount in the request body.
+
+Validates amount (must be positive).
+
+Adds the amount to the user’s current balance.
+
+Updates MongoDB and returns new balance.
+
+c. Withdraw (POST /withdraw)
+
+Takes amount in the request body.
+
+Checks if the user has sufficient balance.
+
+Deducts the amount from balance if valid.
+
+Updates MongoDB and returns updated balance.
+
+Error Handling:
+
+Proper HTTP status codes and messages are returned for errors such as:
+
+Missing/Invalid token → 403 or 401.
+
+Invalid credentials → 401 Unauthorized.
+
+Invalid amount → 400 Bad Request.
+
+Insufficient balance → 400 Bad Request.
+
+User not found → 404 Not Found.
+
+Logging and Console Outputs:
+
+Logs MongoDB connection success or failure.
+
+Logs server start message:
+
+🚀 Server running on port 3000
+
+
+Displays default user creation message on startup.
+
+Execution Flow:
+
+Server starts and connects to MongoDB.
+
+Default user is created (if not present).
+
+User logs in → receives JWT token.
+
+User performs secure transactions (balance check, deposit, withdraw) using the token.
+
+Key Learning Outcomes:
+
+Implementing JWT authentication in Node.js.
+
+Managing user accounts with MongoDB using Mongoose models.
+
+Building secure RESTful APIs with protected routes.
+
+Understanding middleware usage for authorization and data validation.
+
+Performing CRUD-like financial operations securely.

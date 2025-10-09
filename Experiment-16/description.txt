@@ -1,0 +1,110 @@
+Description (Detailed & in Points):
+
+Purpose of the Program:
+
+This Node.js application demonstrates how to create a RESTful API using the Express.js framework.
+
+It showcases the use of middleware, routing, and CRUD operations for managing user data.
+
+Technology Used:
+
+Node.js – JavaScript runtime for running the server.
+
+Express.js – Framework for building web applications and APIs.
+
+Server Setup:
+
+The Express app is initialized using const app = express();.
+
+The server listens on port 3000 (http://localhost:3000).
+
+Middleware Used:
+
+express.json(): Parses incoming JSON request bodies.
+
+Custom Logger Middleware: Logs each incoming request’s method, URL, and timestamp for monitoring.
+Example:
+
+[2025-10-09T09:15:00.000Z] POST /users
+
+
+Authentication Middleware (authMiddleware):
+
+Checks the Authorization header for a valid token:
+Bearer mysecrettoken.
+
+If valid → request proceeds.
+
+If invalid → responds with HTTP 403 Forbidden.
+
+User Data Storage:
+
+Uses an in-memory array users = [] to store user information temporarily (not connected to any database).
+
+CRUD Operations on Users:
+
+Create User (POST /users)
+
+Accepts user data in JSON format and adds it to the users array.
+
+Returns status 201 Created with a success message.
+
+Read Users (GET /users)
+
+Returns all stored users in JSON format with status 200 OK.
+
+Update User (PUT /users/:id)
+
+Finds the user by id and updates its data with the new details provided in the request body.
+
+Returns status 200 OK with a confirmation message.
+
+Delete User (DELETE /users/:id)
+
+Removes the user with the specified id from the users array.
+
+Returns a success message after deletion.
+
+Router and Route Handling:
+
+An Express Router is created for /admin routes.
+
+A router-level middleware runs for every admin route, logging “Admin router middleware executed.”
+
+The /admin/dashboard route sends a response “Admin dashboard” when accessed.
+
+The entire /admin route is protected using the authMiddleware, ensuring only authorized requests can access it.
+
+Logging Functionality:
+
+Every HTTP request made to the server is logged twice:
+
+Once with only method and URL.
+
+Once with method, URL, and the exact timestamp.
+
+Execution Flow Summary:
+
+When the server receives a request:
+
+Logs request details.
+
+Parses the request body (if JSON).
+
+Checks for authentication (for admin routes).
+
+Executes the corresponding CRUD or route handler.
+
+Sends back an appropriate HTTP response.
+
+Key Learning Outcomes:
+
+Understanding Express.js middleware (application-level, route-level, and custom).
+
+Implementing authentication using headers.
+
+Building CRUD APIs in Node.js.
+
+Organizing routes using Express Router.
+
+Logging and monitoring requests for debugging.

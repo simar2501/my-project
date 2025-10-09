@@ -1,0 +1,194 @@
+Description (Detailed & in Points):
+
+Purpose of the Program:
+
+This Node.js application implements a secure bank transfer system using Express.js, MongoDB (via Mongoose), and JWT authentication.
+
+It allows users to register, log in, and transfer funds securely between accounts while ensuring data integrity and preventing unauthorized access.
+
+Technologies Used:
+
+Node.js – For building the server-side application.
+
+Express.js – Web framework for creating RESTful API endpoints.
+
+MongoDB – NoSQL database for storing user account data.
+
+Mongoose – Object Data Modeling (ODM) library for MongoDB.
+
+JWT (jsonwebtoken) – For secure user authentication and authorization.
+
+bcryptjs – For password hashing and verification.
+
+Environment Setup:
+
+MongoDB URI: 'mongodb://localhost:27017/bank_transfer_db' — connects to a local MongoDB instance.
+
+JWT_SECRET: Loaded from environment variables or fallback key (fallback_insecure_key).
+
+Normally, .env and dotenv should be used for security (to hide secrets).
+
+Database Connection (MongoDB):
+
+Establishes connection to the MongoDB server using Mongoose.
+
+Logs success or error message upon connection.
+
+User Schema (Mongoose Model):
+Defines a User model with the following fields:
+
+name: User’s full name (required).
+
+username: Unique username for login (required).
+
+password: Hashed password (required).
+
+balance: Account balance (default 0).
+
+This schema ensures each user has unique credentials and an independent balance record.
+
+Express Server Setup:
+
+The server runs on port 3000.
+
+Uses express.json() to parse JSON request bodies.
+
+All routes are defined in the same file for simplicity.
+
+JWT Authentication Middleware (verifyToken):
+
+Extracts the token from the Authorization header (format: Bearer <token>).
+
+Verifies the token using the secret key.
+
+If valid → attaches decoded user info to req.user.
+
+If invalid or missing → denies access with proper error messages.
+
+Authentication Routes:
+a. /register (POST) – Register a new user.
+
+Accepts name, username, password, and optional initialBalance.
+
+Hashes the password using bcrypt before saving.
+
+Default starting balance = ₹1000 (if not provided).
+
+Prevents duplicate usernames.
+
+Returns user details (excluding password) on successful creation.
+
+b. /login (POST) – Authenticate a user.
+
+Validates username and password.
+
+Compares entered password with hashed password using bcrypt.compare().
+
+On success, issues a JWT token valid for 1 hour.
+
+Returns the token and user ID for further authenticated requests.
+
+Test/Setup Route:
+/create-users (POST)
+
+Deletes all existing users to reset the system.
+
+Creates two default users for testing:
+
+Alice (₹1000 balance)
+
+Bob (₹500 balance)
+
+Returns details of both users to confirm creation.
+
+Used to easily test fund transfer functionality.
+
+Core Protected Route — /transfer (POST):
+
+Requires a valid JWT token for access.
+
+Performs secure fund transfers between users.
+
+Input fields: fromUserId, toUserId, amount.
+
+Validates:
+
+All fields present.
+
+Amount is positive and numeric.
+
+Sender matches authenticated user (security check).
+
+Transfer Logic (Step-by-Step):
+a. Debit Sender Account:
+
+Uses findOneAndUpdate() to atomically decrease sender’s balance only if they have enough funds (balance >= amount).
+
+Prevents race conditions or overdrafts.
+
+If insufficient balance or sender not found → returns appropriate error.
+
+b. Credit Receiver Account:
+
+Increases receiver’s balance using findByIdAndUpdate().
+
+If receiver update fails (invalid ID), sender is automatically refunded to maintain balance integrity.
+
+c. Failure Handling:
+
+If receiver update or ID lookup fails, the system rolls back the transaction by refunding the sender’s deducted amount.
+
+Ensures no data loss even in partial failures.
+
+d. Success Response:
+
+Returns a JSON message confirming the successful transfer.
+
+Displays both sender and receiver’s updated balances.
+
+Error Handling:
+
+Comprehensive error messages for different failure cases:
+
+Missing or invalid JWT → 401/403.
+
+Invalid credentials → 401.
+
+Insufficient funds → 400.
+
+Invalid receiver ID → 404.
+
+Database or server errors → 500.
+
+Logging and Feedback:
+
+Logs all database operations and transfer steps to the console for debugging.
+
+Displays startup message:
+
+Server is running on http://localhost:3000
+
+
+Execution Flow:
+
+Connect to MongoDB.
+
+Register or create default users.
+
+Login with valid credentials → get JWT token.
+
+Use token to authorize /transfer route.
+
+Perform secure balance transfers between accounts.
+
+Key Learning Outcomes:
+
+How to use JWT tokens for authentication and access control.
+
+Implementing secure password storage using bcrypt.
+
+Performing atomic database updates with MongoDB to maintain financial integrity.
+
+Designing non-transactional compensation logic to prevent data inconsistency.
+
+Building secure, real-world-style APIs with Express.js and MongoDB.
